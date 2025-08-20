@@ -119,26 +119,40 @@ kubectl delete ns $NAMESPACE
 
 echo "Cluster validation completed successfully!"
 
-What This Script Tests
+# What This Script Tests
 
-Node health → Verifies all nodes are in Ready state.
+After running the **cluster-validation.sh** script, the following checks are performed:
 
-Deployment → Deploys a sample Nginx pod with replicas.
+1. **Node Health**  
+   - Ensures all Kubernetes nodes are in `Ready` state.
 
-Service discovery & networking → Exposes the app via a Service and tests DNS resolution.
+2. **Deployment**  
+   - Deploys a sample Nginx application with multiple replicas.
 
-Pod-to-Pod communication → Uses a BusyBox pod to curl the test service.
+3. **Service Discovery & Networking**  
+   - Exposes the app via a ClusterIP service.  
+   - Tests DNS resolution and internal service communication.
 
-Cleanup → Removes test resources.
+4. **Pod-to-Pod Communication**  
+   - Uses a BusyBox pod to make a curl request to the Nginx service.
+
+5. **Cleanup**  
+   - Deletes the test namespace and resources after validation.
+
 
 ---
 
 ## 5.IAM OIDC Provider:  
-   - OIDC in EKS connects Kubernetes service accounts with AWS IAM roles.  
-   - Using **IRSA (IAM Roles for Service Accounts)**, pods get temporary AWS credentials instead of static keys.  
+    The **OIDC provider** in Amazon EKS connects **Kubernetes service accounts** with **AWS IAM roles**.  
 
-   **Flow:**  
-   `Pod → Service Account → OIDC Token → IAM Role → AWS Service (e.g., S3, DynamoDB)`  
+    This enables secure, fine-grained permissions for pods using **IRSA (IAM Roles for Service Accounts)**.
+
+## How It Works
+
+1. Pod uses a **service account**.  
+2. The service account is linked with an **OIDC token**.  
+3. The OIDC token is mapped to an **IAM Role**.  
+4. The IAM Role provides temporary credentials to access **AWS services** (e.g., S3, DynamoDB, SQS).
 
    ✅ No hardcoded credentials  
    ✅ Least-privilege access  
