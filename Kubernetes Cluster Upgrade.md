@@ -119,6 +119,7 @@ kubectl delete ns $NAMESPACE
 echo "Cluster validation completed successfully!"
 
 What This Script Tests
+
 Node health → Verifies all nodes are in Ready state.
 
 Deployment → Deploys a sample Nginx pod with replicas.
@@ -128,6 +129,8 @@ Service discovery & networking → Exposes the app via a Service and tests DNS r
 Pod-to-Pod communication → Uses a BusyBox pod to curl the test service.
 
 Cleanup → Removes test resources.
+
+---
 
 **IAM OIDC Provider**:  
    - OIDC in EKS connects Kubernetes service accounts with AWS IAM roles.  
