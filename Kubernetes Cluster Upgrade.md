@@ -5,7 +5,8 @@
 2. [What "Fully Managed" Means in EKS](#what-fully-managed-means-in-eks)
 3. [Process](#2-process)
 4. [Functional Validation Script](#5-functional-validation-script)
-5. [Pod Disruption Budget (PDB)](#4-pod-disruption-budget-pdb)
+5. [IAM OIDC Provider](#IAM OIDC Provider)
+6. [Pod Disruption Budget (PDB)](#4-pod-disruption-budget-pdb)
 
 ---
 
@@ -132,7 +133,7 @@ Cleanup → Removes test resources.
 
 ---
 
-**IAM OIDC Provider**:  
+## 5.IAM OIDC Provider:  
    - OIDC in EKS connects Kubernetes service accounts with AWS IAM roles.  
    - Using **IRSA (IAM Roles for Service Accounts)**, pods get temporary AWS credentials instead of static keys.  
 
@@ -147,7 +148,7 @@ Cleanup → Removes test resources.
 
 ---
 
-## Pod Disruption Budget (PDB)  
+## 6. Pod Disruption Budget (PDB)  
 
 A **PDB** is a safeguard that tells Kubernetes:  
 👉 *“Keep at least X pods running, even during upgrades or maintenance.”*  
