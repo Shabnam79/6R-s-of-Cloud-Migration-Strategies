@@ -2,11 +2,11 @@
 
 ## 📑 Table of Contents
 1. [Pre-requisites](#1-pre-requisites)
-2. [What "Fully Managed" Means in EKS](#what-fully-managed-means-in-eks)
-3. [Process](#2-process)
-4. [Functional Validation Script](#5-functional-validation-script)
+2. [What "Fully Managed" Means in EKS](#2-what-fully-managed-means-in-eks)
+3. [Process](#3-process)
+4. [Functional Validation Script](#4-functional-validation-script)
 5. [IAM OIDC Provider](#5-IAM OIDC Provider)
-6. [Pod Disruption Budget (PDB)](#4-pod-disruption-budget-pdb)
+6. [Pod Disruption Budget (PDB)](#6-pod-disruption-budget-pdb)
 
 ---
 
